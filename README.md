@@ -51,35 +51,34 @@ Calculated overall totals such as:
 - Total deaths
 - Total tests
 
-Trend Analysis
+Trend Analysis:-
 Analyzed how cases and deaths changed over time using daily data.
 
-Peak Days
+Peak Days:-
 Identified the top 10 days with the highest number of reported cases.
 
-Recovery Rate
+Recovery Rate:-
 Calculated the percentage of recovered patients compared to total cases.
 
-Death Rate
+Death Rate:-
 Calculated the percentage of deaths compared to total cases.
 
-Hospital Analysis
+Hospital Analysis:-
 Analyzed hospitalization data including ICU and ventilator usage.
 
-Moving Average
+Moving Average:-
 Computed a 7-day rolling average of daily cases to smooth out fluctuations.
 
-Key Insights
+Key Insights:-
 The analysis shows that COVID-19 cases had noticeable spikes during certain periods. Recovery rates improved over time, while death rates remained relatively lower compared to total cases. Hospital and ICU usage increased during peak case periods. The 7-day moving average helped in understanding the overall trend more clearly.
 
-How to Run
-
+How to Run:-
 1. Import the dataset into a MySQL database
 2. Run the SQL script provided in the project
 3. Execute the queries to view results and analysis
 
-Conclusion
+Conclusion:-
 This project demonstrates how SQL can be used for real-world data analysis. It highlights the importance of data cleaning, aggregation, and trend analysis in understanding large datasets.
 
-Author
+Author:-
 Santosh
