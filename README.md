@@ -1,38 +1,98 @@
-Here is a professional, human-written README.md for your GitHub repository based on your SQL project screenshots. This is written in clear English and formatted to make your profile look great for recruiters.
-COVID-19 Daily Trends: 7-Day Moving Average Analysis
-Project Overview
-This project focuses on analyzing COVID-19 daily case trends using SQL Window Functions. The primary goal was to process raw pandemic data to identify patterns by calculating a 7-Day Moving Average. This statistical method helps smooth out daily fluctuations (noise) to reveal the underlying trend of the virus spread.
-Key Technical Features
- * Time-Series Analysis: Tracking daily case counts over time.
- * Window Functions: Utilizing AVG() OVER() to perform rolling calculations without collapsing rows.
- * Data Precision: Applying ROUND() to ensure the moving average results are clean and professional (limited to 2 decimal places).
- * Trend Smoothing: Implementing a 6 PRECEDING AND CURRENT ROW frame to capture a full week of data for each data point.
-Tech Stack
- * Database: MySQL
- * IDE: MySQL Workbench
- * Version Control: GitHub
-SQL Implementation
-The core logic of this analysis involves calculating the average of the current day’s cases plus the previous six days to get a weekly perspective:
-SELECT 
-    report_date, 
-    daily_cases,
-    ROUND(
-        AVG(daily_cases) OVER (
-            ORDER BY report_date 
-            ROWS BETWEEN 6 PRECEDING AND CURRENT ROW
-        ), 2
-    ) AS avg_7_days
-FROM covid_clean;
+COVID-19 Data Analysis using SQL
 
-Data Insights
- * Noise Reduction: By using a moving average, I was able to reduce the impact of reporting delays (which often happen on weekends) to see the true trajectory of the cases.
- * Growth Patterns: The analysis helps in identifying whether the pandemic was in a plateau, increasing, or decreasing phase at any given point in April 2020.
-How to Use This Repository
- * Database Setup: Import the provided .sql schema or the covid_clean dataset into your MySQL environment.
- * Execution: Run the analysis script to generate the trend reports as shown in the project screenshots.
- * Visualization: These results are ready to be exported to Excel or Tableau for further visual trend analysis.
-Tips for your GitHub upload:
- * Repository Name: Use something professional like Covid19-Trend-Analysis-SQL.
- * Files to Upload: Upload your .sql script file and perhaps a small CSV sample of your data.
- * Screenshots: Since you took photos of your screen, you can also upload the actual screenshots into a folder named images in your repository to show your work in action!
-Does this English version work for your portfolio, or would you like to add more specific details about the dataset?
+Project Overview
+
+This project focuses on analyzing COVID-19 daily data using SQL. The main objective is to clean raw data and extract meaningful insights such as total cases, death rates, recovery rates, and trends over time.
+
+The dataset contains daily reports of COVID-19 cases, including testing, hospitalization, and recovery information.
+
+Objectives
+
+The goals of this project are:
+
+- To clean and transform raw COVID-19 data
+- To calculate key performance indicators such as total cases, deaths, and tests
+- To analyze trends in daily cases and deaths
+- To identify peak days with the highest number of cases
+- To calculate recovery and death rates
+- To perform hospital and ICU usage analysis
+- To compute a 7-day moving average for better trend understanding
+
+Tools and Technologies
+
+- SQL (MySQL)
+- Window Functions
+- Data Cleaning Techniques
+
+Dataset Description
+
+The dataset includes the following information:
+
+- Date (in YYYYMMDD format)
+- State names
+- Total positive cases
+- Total deaths
+- Total test results
+- Number of recovered patients
+- Hospitalized, ICU, and ventilator data
+- Daily increase in cases, deaths, and tests
+
+Data Cleaning
+
+The raw dataset contained null values and unformatted dates. The following steps were performed:
+
+- Converted date into proper SQL date format
+- Replaced null values with 0 using IFNULL
+- Created a clean table named covid_clean for analysis
+
+Analysis Performed
+
+Key Metrics
+
+Calculated overall totals such as:
+
+- Total cases
+- Total deaths
+- Total tests
+
+Trend Analysis
+
+Analyzed how cases and deaths changed over time using daily data.
+
+Peak Days
+
+Identified the top 10 days with the highest number of reported cases.
+
+Recovery Rate
+
+Calculated the percentage of recovered patients compared to total cases.
+
+Death Rate
+
+Calculated the percentage of deaths compared to total cases.
+
+Hospital Analysis
+
+Analyzed hospitalization data including ICU and ventilator usage.
+
+Moving Average
+
+Computed a 7-day rolling average of daily cases to smooth out fluctuations.
+
+Key Insights
+
+The analysis shows that COVID-19 cases had noticeable spikes during certain periods. Recovery rates improved over time, while death rates remained relatively lower compared to total cases. Hospital and ICU usage increased during peak case periods. The 7-day moving average helped in understanding the overall trend more clearly.
+
+How to Run
+
+1. Import the dataset into a MySQL database
+2. Run the SQL script provided in the project
+3. Execute the queries to view results and analysis
+
+Conclusion
+
+This project demonstrates how SQL can be used for real-world data analysis. It highlights the importance of data cleaning, aggregation, and trend analysis in understanding large datasets.
+
+Author
+
+Santosh
